@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ywvlbprcvr3y"]
+
+[ext_resource type="Script" uid="uid://b6tdnlvul108" path="res://gameplay/objects/bubble_path/bubble_path.gd" id="1_kdpme"]
+[ext_resource type="PackedScene" uid="uid://c73r8y703awg8" path="res://gameplay/objects/bubble_path/bubble.tscn" id="2_pwulj"]
+
+[node name="BubblePath" type="Path2D" unique_id=272207774]
+script = ExtResource("1_kdpme")
+bubble_scene = ExtResource("2_pwulj")

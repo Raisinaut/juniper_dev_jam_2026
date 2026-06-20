@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djnkcdkwx7tux"]
+
+[ext_resource type="Script" uid="uid://bqmhwt2u68m2i" path="res://gameplay/wheel/wheel.gd" id="1_nt1jq"]
+
+[node name="Wheel" type="Node2D" unique_id=40160034]
+rotation = 3.1823711
+script = ExtResource("1_nt1jq")
+fill = 0.05
+tick_count = 20
+tick_length = 4
+test_spin = true

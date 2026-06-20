@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c73r8y703awg8"]
+
+[ext_resource type="Texture2D" uid="uid://fxfd6031sssg" path="res://assets/objects/circle.png" id="1_mgqqu"]
+
+[node name="PointBubble" type="Sprite2D" unique_id=443046786]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mgqqu")

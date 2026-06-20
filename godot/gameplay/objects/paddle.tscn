@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dh02vw1qpo0jy"]
+
+[ext_resource type="Texture2D" uid="uid://2m4r7ak0v0ci" path="res://assets/objects/paddle.png" id="1_3pxnc"]
+[ext_resource type="Script" uid="uid://c7p0k2suek2sl" path="res://gameplay/objects/paddle.gd" id="1_6i1sc"]
+
+[node name="Paddle" type="Node2D" unique_id=595953870]
+script = ExtResource("1_6i1sc")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1170640604]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3pxnc")
+offset = Vector2(-300, 0)

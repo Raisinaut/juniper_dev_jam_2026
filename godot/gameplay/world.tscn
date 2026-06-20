@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dv8rg33infn1a"]
+
+[ext_resource type="Script" uid="uid://crkrg0we43qyy" path="res://gameplay/world.gd" id="1_s0vhj"]
+[ext_resource type="PackedScene" uid="uid://djnkcdkwx7tux" path="res://gameplay/wheel/wheel.tscn" id="1_s1lby"]
+[ext_resource type="PackedScene" uid="uid://ban6503mq7r0x" path="res://gameplay/hamster/hamster.tscn" id="2_mrl3i"]
+[ext_resource type="PackedScene" uid="uid://dh02vw1qpo0jy" path="res://gameplay/objects/paddle.tscn" id="3_3425t"]
+[ext_resource type="PackedScene" uid="uid://ywvlbprcvr3y" path="res://gameplay/objects/bubble_path/bubble_path.tscn" id="5_8ijeg"]
+
+[sub_resource type="Curve2D" id="Curve2D_3aytc"]
+_data = {
+"points": PackedVector2Array(-29.763165, -1.026316, 29.763165, 1.026316, 530, 336, -9.236843, -10.263161, 9.236843, 10.263161, 573, 348, -112.89477, -63.6316, 112.89477, 63.6316, 654, 553, -97.50002, 96.47371, 97.50002, -96.47371, 1050, 531, 0, 0, 0, 0, 1088, 64)
+}
+point_count = 5
+
+[node name="World" type="Node2D" unique_id=1315424641]
+script = ExtResource("1_s0vhj")
+
+[node name="Wheel" parent="." unique_id=40160034 instance=ExtResource("1_s1lby")]
+unique_name_in_owner = true
+position = Vector2(257, 331)
+rotation = 0.0
+radius = 200.0
+tick_count = 5
+tick_length = 30
+tick_width = 6.0
+test_spin = false
+
+[node name="UsePosition" type="Marker2D" parent="." unique_id=216342906]
+unique_name_in_owner = true
+position = Vector2(257, 511)
+gizmo_extents = 50.0
+
+[node name="Hamster" parent="UsePosition" unique_id=724986567 instance=ExtResource("2_mrl3i")]
+position = Vector2(0, 8.999999)
+
+[node name="Paddle" parent="." unique_id=595953870 instance=ExtResource("3_3425t")]
+unique_name_in_owner = true
+position = Vector2(544, 336)
+
+[node name="BubblePath" parent="." unique_id=272207774 instance=ExtResource("5_8ijeg")]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_3aytc")
+
+[node name="Counter" type="Control" parent="." unique_id=382437744]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

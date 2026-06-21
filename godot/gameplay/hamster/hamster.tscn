@@ -203,6 +203,7 @@ _data = {
 [node name="Hamster" type="Node2D" unique_id=724986567]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1107088392]
+texture_filter = 1
 material = SubResource("ShaderMaterial_bvnae")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_h1mcn")

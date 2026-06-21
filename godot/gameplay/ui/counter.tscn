@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cw11hfws1f5t3"]
+
+[ext_resource type="FontFile" uid="uid://bc4gdckrhjtbx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="1_t2m86"]
+[ext_resource type="Script" uid="uid://csstoby76pg4w" path="res://gameplay/ui/counter.gd" id="2_aqc1b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37yhw"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_82sw0"]
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 4
+vertical = true
+
+[sub_resource type="Theme" id="Theme_bvnae"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_t2m86")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_37yhw")
+VSeparator/styles/separator = SubResource("StyleBoxLine_82sw0")
+
+[node name="Counter" type="PanelContainer" unique_id=738782303]
+offset_right = 374.0
+offset_bottom = 68.0
+theme = SubResource("Theme_bvnae")
+script = ExtResource("2_aqc1b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=98642357]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=30705353]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pellets"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=1649464130]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer" unique_id=1649775381]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000"
+horizontal_alignment = 2

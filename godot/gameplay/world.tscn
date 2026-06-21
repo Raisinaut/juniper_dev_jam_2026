@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://ban6503mq7r0x" path="res://gameplay/hamster/hamster.tscn" id="2_mrl3i"]
 [ext_resource type="PackedScene" uid="uid://dh02vw1qpo0jy" path="res://gameplay/objects/paddle.tscn" id="3_3425t"]
 [ext_resource type="PackedScene" uid="uid://ywvlbprcvr3y" path="res://gameplay/objects/bubble_path/bubble_path.tscn" id="5_8ijeg"]
+[ext_resource type="PackedScene" uid="uid://cw11hfws1f5t3" path="res://gameplay/ui/counter.tscn" id="6_3aytc"]
 
-[sub_resource type="Curve2D" id="Curve2D_3aytc"]
+[sub_resource type="Curve2D" id="Curve2D_8ijeg"]
 _data = {
-"points": PackedVector2Array(-29.763165, -1.026316, 29.763165, 1.026316, 530, 336, -9.236843, -10.263161, 9.236843, 10.263161, 573, 348, -112.89477, -63.6316, 112.89477, 63.6316, 654, 553, -97.50002, 96.47371, 97.50002, -96.47371, 1050, 531, 0, 0, 0, 0, 1088, 64)
+"points": PackedVector2Array(0, 0, 0, 0, 528, 336, -7.3628845, 54.39519, 7.3628845, -54.39519, 608, 296, 6.6115704, 73.55371, -6.6115704, -73.55371, 568, 128, 0, 0, 0, 0, 650, 63)
 }
-point_count = 5
+point_count = 4
 
 [node name="World" type="Node2D" unique_id=1315424641]
 script = ExtResource("1_s0vhj")
@@ -20,7 +21,6 @@ unique_name_in_owner = true
 position = Vector2(257, 331)
 rotation = 0.0
 radius = 200.0
-tick_count = 5
 tick_length = 30
 tick_width = 6.0
 test_spin = false
@@ -32,6 +32,7 @@ gizmo_extents = 50.0
 
 [node name="Hamster" parent="UsePosition" unique_id=724986567 instance=ExtResource("2_mrl3i")]
 position = Vector2(0, 8.999999)
+scale = Vector2(2.375, 2.375)
 
 [node name="Paddle" parent="." unique_id=595953870 instance=ExtResource("3_3425t")]
 unique_name_in_owner = true
@@ -39,10 +40,11 @@ position = Vector2(544, 336)
 
 [node name="BubblePath" parent="." unique_id=272207774 instance=ExtResource("5_8ijeg")]
 unique_name_in_owner = true
-curve = SubResource("Curve2D_3aytc")
+curve = SubResource("Curve2D_8ijeg")
+path_width = 8
 
-[node name="Counter" type="Control" parent="." unique_id=382437744]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Counter" parent="." unique_id=2100069892 instance=ExtResource("6_3aytc")]
+offset_left = 640.0
+offset_top = 28.0
+offset_right = 1004.0
+offset_bottom = 99.0

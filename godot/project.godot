@@ -15,11 +15,15 @@ run/main_scene="uid://dv8rg33infn1a"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://b21yhi1dn1vab"
+
 [display]
 
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-window/transparent_background=false
 
 [physics]
 

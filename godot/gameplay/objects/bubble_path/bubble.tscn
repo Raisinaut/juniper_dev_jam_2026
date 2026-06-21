@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://fxfd6031sssg" path="res://assets/objects/circle.png" id="1_mgqqu"]
 
 [node name="PointBubble" type="Sprite2D" unique_id=443046786]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_mgqqu")

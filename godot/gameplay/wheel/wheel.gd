@@ -2,7 +2,8 @@
 class_name Wheel
 extends Node2D
 
-signal tick_passed
+signal tick_passed(qty : int)
+signal rpm_changed(value : float)
 
 @export var radius : float = 100 : 
 	set(val): radius = val; queue_redraw()
@@ -14,15 +15,27 @@ signal tick_passed
 	set(val): tick_length = val; queue_redraw()
 @export_range(0, 10, 0.01, "or_greater")  var tick_width : float = 2:
 	set(val): tick_width = val; queue_redraw()
+@export_range(0, 10, 1, "or_greater")  var support_count : int = 6:
+	set(val): support_count = val; queue_redraw()
+@export_range(0, 10, 0.01, "or_greater")  var support_width : float = 8:
+	set(val): support_width = val; queue_redraw()
 
 @export var test_spin : bool = false :
-	set(val): test_spin = val; reset_rotation()
+	set(val): 
+		test_spin = val
+		rpm = 10 if test_spin else 0
+		reset_rotation()
 
-var rotation_speed : float = 1
+var rpm : float = 0.0 :
+	set(val): rpm = val; rpm_changed.emit(rpm)
 var rotation_since_tick : float = 0.0
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	UpgradeManager.attribute_updated.connect(_on_attribute_upgraded)
+	test_spin = false
 	reset_rotation()
 
 func _process(delta: float) -> void:
@@ -31,27 +44,39 @@ func _process(delta: float) -> void:
 	spin(delta)
 
 func spin(delta : float):
-	var rotation_amount = rotation_speed * delta
-	rotation = wrapf(rotation + rotation_amount, 0, 2 * PI)
-	rotation_since_tick += rotation_amount
-	var ticks_passed : int = floor(rotation_since_tick / get_tick_angle_separation())
+	var rotation_change = angular_velocity() * delta
+	rotation = wrapf(rotation + rotation_change, 0, 2 * PI)
+	rotation_since_tick += rotation_change
+	var ticks_passed : int = floor(rotation_since_tick / tick_angle_separation())
 	if ticks_passed > 0:
 		if not Engine.is_editor_hint():
-			tick_passed.emit()
-			print(ticks_passed, " tick passed")
+			tick_passed.emit(ticks_passed)
+			#print(ticks_passed, " tick passed")
 		rotation_since_tick = 0
 
-func get_tick_angle_separation() -> float:
+func tick_angle_separation() -> float:
 	return 2 * PI / tick_count
 
+func angular_velocity() -> float:
+	return rpm * 2 * PI / 60
+	
 func reset_rotation() -> void:
 	rotation = 0
 
+func inner_radius() -> float:
+	return radius * (1.0 - fill * 2)
 
 # DRAWING ----------------------------------------------------------------------
 func _draw() -> void:
 	draw_ticks()
 	draw_ring()
+	draw_supports()
+
+func draw_supports() -> void:
+	for i in support_count:
+		var angle = remap(i, 0, support_count, 0, 2 * PI)
+		var end_point = Vector2.from_angle(angle) * inner_radius()
+		draw_line(Vector2.ZERO, end_point, Color.DARK_GRAY, support_width)
 
 func draw_ticks() -> void:
 	var tick_lines : PackedVector2Array = []
@@ -67,3 +92,11 @@ func draw_ring() -> void:
 	var r_offset = radius * fill
 	var w = radius * 2 * fill
 	draw_circle(Vector2.ZERO, radius - r_offset, Color.WHITE, false, w, false)
+
+
+# SIGNALS ----------------------------------------------------------------------
+func _on_attribute_upgraded(attribute : String, value : float) -> void:
+	match(attribute):
+		"wheel_rpm":
+			rpm = value
+			

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dh02vw1qpo0jy" path="res://gameplay/objects/paddle.tscn" id="3_3425t"]
 [ext_resource type="PackedScene" uid="uid://ywvlbprcvr3y" path="res://gameplay/objects/bubble_path/bubble_path.tscn" id="5_8ijeg"]
 [ext_resource type="PackedScene" uid="uid://cw11hfws1f5t3" path="res://gameplay/ui/counter.tscn" id="6_3aytc"]
+[ext_resource type="PackedScene" uid="uid://b8t8300mivr15" path="res://gameplay/ui/upgrade_list.tscn" id="7_a7i81"]
 
 [sub_resource type="Curve2D" id="Curve2D_8ijeg"]
 _data = {
@@ -16,21 +17,30 @@ point_count = 4
 [node name="World" type="Node2D" unique_id=1315424641]
 script = ExtResource("1_s0vhj")
 
-[node name="Wheel" parent="." unique_id=40160034 instance=ExtResource("1_s1lby")]
+[node name="WheelStructure" type="Node2D" parent="." unique_id=2069908100]
+position = Vector2(258, 328)
+
+[node name="Stand" type="Line2D" parent="WheelStructure" unique_id=1957235355]
+points = PackedVector2Array(0, 0, -192, 256, 192, 256, 0, 0)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Wheel" parent="WheelStructure" unique_id=40160034 instance=ExtResource("1_s1lby")]
 unique_name_in_owner = true
-position = Vector2(257, 331)
-rotation = 0.0
 radius = 200.0
 tick_length = 30
 tick_width = 6.0
-test_spin = false
+support_count = 6
+support_width = 8.0
 
 [node name="UsePosition" type="Marker2D" parent="." unique_id=216342906]
 unique_name_in_owner = true
-position = Vector2(257, 511)
+position = Vector2(258, 508)
 gizmo_extents = 50.0
 
 [node name="Hamster" parent="UsePosition" unique_id=724986567 instance=ExtResource("2_mrl3i")]
+unique_name_in_owner = true
 position = Vector2(0, 8.999999)
 scale = Vector2(2.375, 2.375)
 
@@ -48,3 +58,9 @@ offset_left = 640.0
 offset_top = 28.0
 offset_right = 1004.0
 offset_bottom = 99.0
+
+[node name="UpgradeList" parent="." unique_id=2040785906 instance=ExtResource("7_a7i81")]
+offset_left = 640.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 576.0

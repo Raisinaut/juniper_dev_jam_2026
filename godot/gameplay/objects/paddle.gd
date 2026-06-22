@@ -7,6 +7,7 @@ var max_flick_rotation = 0.3
 var rotation_tween : Tween = null
 
 func flick() -> void:
+	sprite.rotation = 0
 	if rotation_tween: rotation_tween.kill()
 	rotation_tween = create_tween()
 	rotation_tween.tween_property(sprite, "rotation", -max_flick_rotation, 0.05)

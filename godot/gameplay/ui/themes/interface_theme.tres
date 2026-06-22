@@ -1,0 +1,56 @@
+[gd_resource type="Theme" format=3 uid="uid://6x7g6yc0ph84"]
+
+[ext_resource type="FontFile" uid="uid://bc4gdckrhjtbx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="1_2tudf"]
+[ext_resource type="StyleBox" uid="uid://dw8xl6a2cm47g" path="res://gameplay/ui/styles/button_normal.tres" id="1_oabcr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dias"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oabcr"]
+bg_color = Color(0.83889705, 0.83889705, 0.838897, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37yhw"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_82sw0"]
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 4
+vertical = true
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_5dias")
+Button/styles/hover = SubResource("StyleBoxFlat_5dias")
+Button/styles/normal = ExtResource("1_oabcr")
+Button/styles/pressed = SubResource("StyleBoxFlat_oabcr")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_2tudf")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_37yhw")
+VSeparator/styles/separator = SubResource("StyleBoxLine_82sw0")

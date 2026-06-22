@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dtxudhimxtw5i"]
+
+[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://gameplay/ui/themes/interface_theme.tres" id="1_cyit5"]
+[ext_resource type="Script" uid="uid://bktpx7ew3kvvx" path="res://gameplay/ui/upgrade_listing.gd" id="2_gbh3a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sap12"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvnae"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_30gb0"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="UpgradeListing" type="MarginContainer" unique_id=1713717684]
+theme = ExtResource("1_cyit5")
+script = ExtResource("2_gbh3a")
+
+[node name="BuyButton" type="Button" parent="." unique_id=1788644105]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=552828832]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1009064609]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=66726626]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2125791538]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade Title"
+label_settings = SubResource("LabelSettings_sap12")
+
+[node name="DetailLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=197113243]
+unique_name_in_owner = true
+layout_mode = 2
+text = "what the upgrade does"
+label_settings = SubResource("LabelSettings_bvnae")
+
+[node name="CostLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=348605458]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "100 Pellets"
+label_settings = SubResource("LabelSettings_30gb0")
+horizontal_alignment = 1

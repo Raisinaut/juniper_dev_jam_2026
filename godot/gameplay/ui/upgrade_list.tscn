@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b8t8300mivr15"]
+
+[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://gameplay/ui/themes/interface_theme.tres" id="1_30gb0"]
+[ext_resource type="PackedScene" uid="uid://dtxudhimxtw5i" path="res://gameplay/ui/upgrade_listing.tscn" id="2_ynkk4"]
+
+[node name="UpgradeList" type="PanelContainer" unique_id=2040785906]
+offset_right = 448.0
+offset_bottom = 448.0
+theme = ExtResource("1_30gb0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=552909608]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=480642766]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1675135385]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="UpgradeListing" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1713717684 instance=ExtResource("2_ynkk4")]
+layout_mode = 2
+title = "Speedup"
+details = "Increase spin rate by 5 rpm"
+cost = 10
+linked_attribute = "wheel_rpm"

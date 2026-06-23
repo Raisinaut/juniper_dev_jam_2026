@@ -3,21 +3,25 @@ extends Node2D
 @onready var wheel: Wheel = %Wheel
 @onready var paddle: Node2D = %Paddle
 @onready var bubble_path: Path2D = %BubblePath
-@onready var hamster: Node2D = %Hamster
+@onready var hamster_spawner: RadialSpawner = %HamsterSpawner
 
 func _ready() -> void:
 	wheel.tick_passed.connect(paddle.flick.unbind(1))
 	wheel.tick_passed.connect(bubble_path.send_value)
 	bubble_path.path_end_reached.connect(_on_bubble_path_animation_finished)
-	wheel.rpm_changed.connect(_on_wheel_rpm_changed)
+	hamster_spawner.global_position = wheel.global_position
+	hamster_spawner.radius = wheel.inner_radius()
+	AttributeManager.attribute_updated.connect(_on_attribute_updated)
+	#wheel.rpm_changed.connect(_on_wheel_rpm_changed)
 
 func _on_bubble_path_animation_finished(value : int) -> void:
 	GameManager.currency += value
 
-#func _process(_delta: float) -> void:
-	#UpgradeManager.upgrade_attribute("wheel_rpm", UpgradeManager.FunctionType.ADD)
-
-func _on_wheel_rpm_changed(rpm : float) -> void:
-	var normal_rpm = 45
-	var rpm_scale = rpm / normal_rpm
-	hamster.run_speed = rpm_scale
+func _on_attribute_updated(data : AttributeData) -> void:
+	match(data.attribute):
+		"hamster_count":
+			var rpm_per_hamster = 10
+			hamster_spawner.active_count = round(data.current_value)
+			wheel.rpm = hamster_spawner.active_count * rpm_per_hamster
+		"paddle_count":
+			wheel.tick_count = data.current_value

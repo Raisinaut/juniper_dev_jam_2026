@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://ban6503mq7r0x"]
 
 [ext_resource type="Texture2D" uid="uid://b023p45ybigln" path="res://assets/hamster/hamster.png" id="1_h1mcn"]
-[ext_resource type="Shader" uid="uid://bxxt0n8e66ixh" path="res://shaders/outline_2d.gdshader" id="1_oa22w"]
 [ext_resource type="Script" uid="uid://e4yusgi7044x" path="res://gameplay/hamster/hamster.gd" id="1_t7nof"]
 [ext_resource type="Texture2D" uid="uid://cnjp6l3ctdtbj" path="res://assets/hamster/red_eye_glow.png" id="3_p1o0g"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvnae"]
-shader = ExtResource("1_oa22w")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 20.00000095
-shader_parameter/pattern = 1
-shader_parameter/inside = false
-shader_parameter/add_margins = true
-shader_parameter/number_of_images = Vector2(14, 1)
 
 [sub_resource type="Animation" id="Animation_t7nof"]
 length = 0.001
@@ -206,10 +196,9 @@ script = ExtResource("1_t7nof")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1107088392]
 texture_filter = 1
-material = SubResource("ShaderMaterial_bvnae")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_h1mcn")
-offset = Vector2(0, -260)
+offset = Vector2(0, -220)
 hframes = 14
 
 [node name="EyePosition" type="Marker2D" parent="Sprite2D" unique_id=1970143410]

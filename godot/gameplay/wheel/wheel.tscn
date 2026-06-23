@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://djnkcdkwx7tux"]
 
 [ext_resource type="Script" uid="uid://bqmhwt2u68m2i" path="res://gameplay/wheel/wheel.gd" id="1_nt1jq"]
+[ext_resource type="Script" uid="uid://gkndu5qr3aya" path="res://gameplay/wheel/mouse_click_area.gd" id="2_86lyt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86lyt"]
+radius = 200.0
 
 [node name="Wheel" type="Node2D" unique_id=40160034]
 script = ExtResource("1_nt1jq")
 fill = 0.05
 tick_length = 4
-support_count = null
-support_width = null
+
+[node name="MouseArea" type="Area2D" parent="." unique_id=2081064080]
+script = ExtResource("2_86lyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea" unique_id=164163403]
+shape = SubResource("CircleShape2D_86lyt")

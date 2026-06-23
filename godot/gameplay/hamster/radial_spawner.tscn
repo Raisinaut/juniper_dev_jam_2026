@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dajd2nsn3f3uy"]
+
+[ext_resource type="Script" uid="uid://byev47y2y1j60" path="res://gameplay/hamster/radial_spawner.gd" id="1_30etx"]
+
+[node name="RadialSpawner" type="Node2D" unique_id=1246472195]
+script = ExtResource("1_30etx")

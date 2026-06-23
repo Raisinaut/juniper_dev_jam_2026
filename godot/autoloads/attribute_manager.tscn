@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://baiu0ykygl36i"]
+
+[ext_resource type="Script" uid="uid://dqglw2trjrhmr" path="res://autoloads/attribute_manager.gd" id="1_xu5oy"]
+
+[node name="AttributeManager" type="Node" unique_id=1753305598]
+script = ExtResource("1_xu5oy")

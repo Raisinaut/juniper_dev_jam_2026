@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttributeData" format=3 uid="uid://57oqrg2ts5un"]
+
+[ext_resource type="Script" uid="uid://dl5ldl50ujvgu" path="res://resources/_classes/attribute_data.gd" id="1_k64gi"]
+
+[resource]
+script = ExtResource("1_k64gi")
+title = "Hamster"
+details = "+1 speedy lil guy (adds +3 rpm each)"
+attribute = "hamster_count"
+upgrade_increment = 1.0
+base_cost = 10
+cost_increase_exponent = 1.1
+metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

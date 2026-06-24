@@ -6,6 +6,8 @@
 [node name="Counter" type="PanelContainer" unique_id=738782303]
 offset_right = 374.0
 offset_bottom = 68.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme = ExtResource("1_aqc1b")
 script = ExtResource("2_aqc1b")
 
@@ -13,7 +15,7 @@ script = ExtResource("2_aqc1b")
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=30705353]
+[node name="TitleLabel" type="Label" parent="HBoxContainer" unique_id=30705353]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Pellets"
@@ -21,9 +23,9 @@ text = "Pellets"
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=1649464130]
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer" unique_id=1649775381]
+[node name="ValueLabel" type="Label" parent="HBoxContainer" unique_id=1649775381]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "0000"
+text = "0"
 horizontal_alignment = 2

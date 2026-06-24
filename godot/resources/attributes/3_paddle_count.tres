@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_b6u6r")
 title = "Thwacker"
-details = "+1 paddle to hit the thing"
+details = "A thing to hit the thing"
 attribute = "paddle_count"
 base_value = 2.0
 upgrade_increment = 1.0
-base_cost = 50
-cost_increase_exponent = 1.1
+base_cost = 30
+cost_increase_exponent = 1.08
 metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

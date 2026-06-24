@@ -3,6 +3,18 @@
 [ext_resource type="FontFile" uid="uid://bc4gdckrhjtbx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="1_2tudf"]
 [ext_resource type="StyleBox" uid="uid://dw8xl6a2cm47g" path="res://gameplay/ui/styles/button_normal.tres" id="1_oabcr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yegn6"]
+bg_color = Color(0.35343763, 0.35343757, 0.3534376, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dias"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 3
@@ -45,6 +57,7 @@ thickness = 4
 vertical = true
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_yegn6")
 Button/styles/focus = SubResource("StyleBoxFlat_5dias")
 Button/styles/hover = SubResource("StyleBoxFlat_5dias")
 Button/styles/normal = ExtResource("1_oabcr")

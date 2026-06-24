@@ -4,6 +4,8 @@ extends Node2D
 
 signal tick_passed(qty : int)
 signal rpm_changed(value : float)
+signal total_rpm_changed(value : float)
+signal clicked
 
 @onready var mouse_area: Area2D = $MouseArea
 
@@ -30,11 +32,13 @@ signal rpm_changed(value : float)
 		reset_rotation()
 
 var rpm : float = 0.0 :
-	set(val): rpm = val; rpm_changed.emit(rpm)
+	set(val): rpm = val#; rpm_changed.emit(rpm)
 var rpm_boost : float = 0.0
 var rpm_boost_decrease_rate : float = 15.0
+var last_rpm : float = 0
 var rotation_since_tick : float = 0.0
 var boost_tween : Tween = null
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -46,7 +50,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint() and not test_spin:
 		return
+	var last_rotation = rotation
 	spin(delta)
+	var curr_rotation = rotation
+	var current_rpm = ((curr_rotation - last_rotation) / delta) * (60 / (2 * PI))
+	if last_rpm != current_rpm and current_rpm > 0:
+		rpm_changed.emit(current_rpm)
 
 func spin(delta : float):
 	var rotation_change = angular_velocity() * delta
@@ -83,6 +92,7 @@ func _on_mouse_area_clicked() -> void:
 	if boost_tween: boost_tween.kill()
 	boost_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	boost_tween.tween_property(self, "rpm_boost", 0, 2.0)
+	clicked.emit()
 
 
 # DRAWING ----------------------------------------------------------------------

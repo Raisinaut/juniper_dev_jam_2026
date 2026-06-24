@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://sh2fuht2pw8c"]
+
+[ext_resource type="Texture2D" uid="uid://fxfd6031sssg" path="res://assets/objects/circle.png" id="1_3ulec"]
+
+[node name="RankMarker" type="TextureRect" unique_id=648190057]
+custom_minimum_size = Vector2(12, 12)
+texture = ExtResource("1_3ulec")
+expand_mode = 1

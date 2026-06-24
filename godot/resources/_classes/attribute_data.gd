@@ -17,6 +17,8 @@ extends Resource
 	set(val): base_cost = val; upgrade_cost = base_cost
 @export_range(1.0, 5.0, 0.01, "or_greater") var cost_increase_exponent : float = 1.0
 
+## The number of upgrades this attribute has
+var rank : int = 0
 # These must be initialized via setter functions to respect export values
 var current_value : float
 var upgrade_cost : int
@@ -39,6 +41,7 @@ func upgrade() -> void:
 		UpgradeFunction.DIVIDE:
 			current_value /= upgrade_increment
 	scale_upgrade_cost()
+	rank += 1
 
 func scale_upgrade_cost() -> void:
 	upgrade_cost = round(pow(upgrade_cost, cost_increase_exponent))

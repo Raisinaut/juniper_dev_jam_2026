@@ -3,59 +3,101 @@
 [ext_resource type="Script" uid="uid://crkrg0we43qyy" path="res://gameplay/world.gd" id="1_s0vhj"]
 [ext_resource type="PackedScene" uid="uid://djnkcdkwx7tux" path="res://gameplay/wheel/wheel.tscn" id="1_s1lby"]
 [ext_resource type="PackedScene" uid="uid://ban6503mq7r0x" path="res://gameplay/hamster/hamster.tscn" id="2_mrl3i"]
+[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://gameplay/ui/themes/interface_theme.tres" id="2_vdnhq"]
 [ext_resource type="PackedScene" uid="uid://dh02vw1qpo0jy" path="res://gameplay/objects/paddle.tscn" id="3_3425t"]
 [ext_resource type="PackedScene" uid="uid://ywvlbprcvr3y" path="res://gameplay/objects/bubble_path/bubble_path.tscn" id="5_8ijeg"]
 [ext_resource type="PackedScene" uid="uid://cw11hfws1f5t3" path="res://gameplay/ui/counter.tscn" id="6_3aytc"]
 [ext_resource type="PackedScene" uid="uid://b8t8300mivr15" path="res://gameplay/ui/upgrade_list.tscn" id="7_a7i81"]
-[ext_resource type="PackedScene" uid="uid://dajd2nsn3f3uy" path="res://gameplay/hamster/radial_spawner.tscn" id="7_rfe6v"]
+[ext_resource type="PackedScene" uid="uid://dajd2nsn3f3uy" path="res://gameplay/spawner/radial_spawner.tscn" id="7_rfe6v"]
 
 [sub_resource type="Curve2D" id="Curve2D_8ijeg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 528, 336, -7.3628845, 54.39519, 7.3628845, -54.39519, 608, 296, 6.6115704, 73.55371, -6.6115704, -73.55371, 568, 128, 0, 0, 0, 0, 650, 63)
+"points": PackedVector2Array(0, 0, 0, 0, 536, 352, -14.428234, 45.774544, 14.428234, -45.774544, 608, 312, 3.9819686, 73.178055, -3.9819686, -73.178055, 568, 128, 0, 0, 0, 0, 648, 64)
 }
 point_count = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdnhq"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sc5ct"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D" unique_id=1315424641]
 script = ExtResource("1_s0vhj")
 
-[node name="WheelStructure" type="Node2D" parent="." unique_id=2069908100]
-position = Vector2(258, 328)
+[node name="HUD" type="CanvasLayer" parent="." unique_id=966535492]
 
-[node name="Stand" type="Line2D" parent="WheelStructure" unique_id=1957235355]
-visible = false
-points = PackedVector2Array(0, 0, -192, 256, 192, 256, 0, 0)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1163434737]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_vdnhq")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="Wheel" parent="WheelStructure" unique_id=40160034 instance=ExtResource("1_s1lby")]
+[node name="Wheel" parent="." unique_id=40160034 instance=ExtResource("1_s1lby")]
 unique_name_in_owner = true
+position = Vector2(264, 344)
 radius = 200.0
 tick_count = 2
 tick_length = 30
 tick_width = 6.0
 
+[node name="Paddle" parent="." unique_id=595953870 instance=ExtResource("3_3425t")]
+unique_name_in_owner = true
+position = Vector2(550, 352)
+
 [node name="HamsterSpawner" parent="." unique_id=1246472195 instance=ExtResource("7_rfe6v")]
 unique_name_in_owner = true
 scene_to_spawn = ExtResource("2_mrl3i")
-
-[node name="Paddle" parent="." unique_id=595953870 instance=ExtResource("3_3425t")]
-unique_name_in_owner = true
-position = Vector2(544, 336)
 
 [node name="BubblePath" parent="." unique_id=272207774 instance=ExtResource("5_8ijeg")]
 unique_name_in_owner = true
 curve = SubResource("Curve2D_8ijeg")
 path_width = 8
 
-[node name="Counter" parent="." unique_id=2100069892 instance=ExtResource("6_3aytc")]
+[node name="ClickPrompt" type="Label" parent="." unique_id=1373381692]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = 312.0
+offset_right = 394.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_vdnhq")
+text = "Click to Spin"
+label_settings = SubResource("LabelSettings_vdnhq")
+
+[node name="PelletRate" parent="." unique_id=738782303 instance=ExtResource("6_3aytc")]
+unique_name_in_owner = true
+offset_left = 968.0
+offset_top = 55.0
+offset_right = 1120.0
+offset_bottom = 103.0
+size_flags_vertical = 8
+title = "pps"
+label_settings = SubResource("LabelSettings_sc5ct")
+
+[node name="Currency" parent="." unique_id=2100069892 instance=ExtResource("6_3aytc")]
+unique_name_in_owner = true
 offset_left = 640.0
 offset_top = 28.0
-offset_right = 1004.0
-offset_bottom = 99.0
+offset_right = 952.0
+offset_bottom = 104.0
 
 [node name="UpgradeList" parent="." unique_id=2040785906 instance=ExtResource("7_a7i81")]
 offset_left = 640.0
 offset_top = 128.0
-offset_right = 1088.0
+offset_right = 1120.0
 offset_bottom = 576.0

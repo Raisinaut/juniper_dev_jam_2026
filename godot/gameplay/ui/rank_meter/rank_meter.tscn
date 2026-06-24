@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dkx1ttyr0p7go"]
+
+[ext_resource type="Script" uid="uid://bessxers08sq3" path="res://gameplay/ui/rank_meter/rank_meter.gd" id="1_h6li3"]
+[ext_resource type="PackedScene" uid="uid://sh2fuht2pw8c" path="res://gameplay/ui/rank_meter/rank_marker.tscn" id="1_ttwnu"]
+
+[node name="RankMeter" type="GridContainer" unique_id=604443429]
+modulate = Color(0, 0, 0, 1)
+size_flags_horizontal = 3
+columns = 20
+script = ExtResource("1_h6li3")
+marker = ExtResource("1_ttwnu")
+marker_size = Vector2(12, 12)

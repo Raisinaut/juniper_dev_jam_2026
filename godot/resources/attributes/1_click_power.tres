@@ -10,5 +10,5 @@ attribute = "click_power"
 base_value = 3.0
 upgrade_increment = 3.0
 base_cost = 5
-cost_increase_exponent = 1.1
+cost_increase_exponent = 1.08
 metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

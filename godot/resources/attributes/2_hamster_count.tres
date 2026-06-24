@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_k64gi")
 title = "Hamster"
-details = "+1 speedy lil guy (adds +3 rpm each)"
+details = "A little guy (+15 rpm each)"
 attribute = "hamster_count"
 upgrade_increment = 1.0
 base_cost = 10
-cost_increase_exponent = 1.1
+cost_increase_exponent = 1.08
 metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

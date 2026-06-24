@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dajd2nsn3f3uy"]
+
+[ext_resource type="Script" uid="uid://byev47y2y1j60" path="res://gameplay/spawner/radial_spawner.gd" id="1_30etx"]
+[ext_resource type="PackedScene" uid="uid://c15krre3d1ugx" path="res://gameplay/spawner/swing_pivot.tscn" id="2_01gar"]
+
+[node name="RadialSpawner" type="Node2D" unique_id=1246472195]
+script = ExtResource("1_30etx")
+pivot_scene = ExtResource("2_01gar")

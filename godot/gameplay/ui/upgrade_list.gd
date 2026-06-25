@@ -8,7 +8,7 @@ func _ready() -> void:
 	populate_list()
 
 func populate_list() -> void:
-	for a in AttributeManager.attributes:
+	for a in AttributeManager.upgrades:
 		add_listing(a.attribute)
 
 func add_listing(attribute: String) -> void:

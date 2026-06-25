@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttributeData" format=3 uid="uid://d1h8hgiga0l8c"]
+
+[ext_resource type="Script" uid="uid://dl5ldl50ujvgu" path="res://resources/_classes/attribute_data.gd" id="1_vxkep"]
+
+[resource]
+script = ExtResource("1_vxkep")
+title = "Optical Lazers"
+details = "Consequences shmonsequences!"
+attribute = "lazer_eyes"
+single_use = true
+upgrade_increment = 1.0
+base_cost = 5000
+metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

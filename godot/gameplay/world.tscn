@@ -18,31 +18,12 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_vdnhq"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_sc5ct"]
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D" unique_id=1315424641]
 script = ExtResource("1_s0vhj")
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=966535492]
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1163434737]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("2_vdnhq")
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
 
 [node name="Wheel" parent="." unique_id=40160034 instance=ExtResource("1_s1lby")]
 unique_name_in_owner = true
@@ -65,21 +46,25 @@ unique_name_in_owner = true
 curve = SubResource("Curve2D_8ijeg")
 path_width = 8
 
-[node name="ClickPrompt" type="Label" parent="." unique_id=1373381692]
+[node name="ClickPrompt" type="RichTextLabel" parent="." unique_id=77150900]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 120.0
+offset_left = 98.0
 offset_top = 312.0
-offset_right = 394.0
-offset_bottom = 377.0
+offset_right = 416.0
+offset_bottom = 382.25433
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_vdnhq")
-text = "Click to Spin"
-label_settings = SubResource("LabelSettings_vdnhq")
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=4.0 connected=1]Click to Spin[/wave]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
 
 [node name="PelletRate" parent="." unique_id=738782303 instance=ExtResource("6_3aytc")]
 unique_name_in_owner = true
@@ -91,6 +76,7 @@ size_flags_vertical = 8
 title = "pps"
 hide_decimal = false
 label_settings = SubResource("LabelSettings_sc5ct")
+update_cooldown = 0.3
 
 [node name="Currency" parent="." unique_id=2100069892 instance=ExtResource("6_3aytc")]
 unique_name_in_owner = true
@@ -98,6 +84,7 @@ offset_left = 640.0
 offset_top = 28.0
 offset_right = 952.0
 offset_bottom = 104.0
+update_cooldown = 0.05
 
 [node name="UpgradeList" parent="." unique_id=2040785906 instance=ExtResource("7_a7i81")]
 offset_left = 640.0

@@ -4,7 +4,6 @@ extends Node2D
 
 signal tick_passed(qty : int)
 signal rpm_changed(value : float)
-signal total_rpm_changed(value : float)
 signal clicked
 
 @onready var mouse_area: Area2D = $MouseArea
@@ -86,8 +85,9 @@ func inner_radius() -> float:
 
 # SIGNALS ----------------------------------------------------------------------
 func _on_mouse_area_clicked() -> void:
-	var click_power_data = AttributeManager.find_attribute("click_power")
-	rpm_boost += click_power_data.current_value
+	var click_rpm = AttributeManager.get_attribute_value("click_rpm")
+	var click_power_count = AttributeManager.get_attribute_value("click_multiplier")
+	rpm_boost += click_rpm * click_power_count
 	# TWEEN BOOST BACK TO ZERO
 	if boost_tween: boost_tween.kill()
 	boost_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)

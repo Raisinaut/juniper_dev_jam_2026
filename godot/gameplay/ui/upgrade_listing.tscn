@@ -5,15 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://dkx1ttyr0p7go" path="res://gameplay/ui/rank_meter/rank_meter.tscn" id="3_c78my"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sap12"]
-font_size = 30
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bvnae"]
-font_size = 20
+font_size = 18
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_30gb0"]
-font_size = 30
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [node name="UpgradeListing" type="MarginContainer" unique_id=1713717684]
@@ -64,6 +64,7 @@ label_settings = SubResource("LabelSettings_bvnae")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1378230988]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=348605458]

@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_k64gi")
 title = "Hamster"
-details = "A little guy (+15 rpm each)"
+details = "A little guy (+%d rpm each)"
 attribute = "hamster_count"
+referenced_attributes = Array[String](["hamster_rpm"])
 upgrade_increment = 1.0
 base_cost = 10
 cost_increase_exponent = 1.08

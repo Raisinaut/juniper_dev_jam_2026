@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_tckke")
 title = "Human Power"
-details = "Add a +3 rpm boost to manual spins"
-attribute = "click_power"
+details = "Add a +%d rpm boost to manual spins"
+attribute = "click_multiplier"
+referenced_attributes = Array[String](["click_rpm"])
 base_value = 3.0
 upgrade_increment = 3.0
 base_cost = 5

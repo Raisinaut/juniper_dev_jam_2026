@@ -35,6 +35,7 @@ func load_folder_resources(folder_path : String) -> Array:
 	if dir: 
 		dir.list_dir_begin()
 		for file: String in dir.get_files():
+			file = file.trim_suffix(".remap") # for export builds
 			var resource := load(dir.get_current_dir() + "/" + file)
 			contents.append(resource)
 	else:

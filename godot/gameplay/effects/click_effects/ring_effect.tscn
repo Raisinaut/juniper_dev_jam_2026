@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://48qx422v270l"]
+
+[ext_resource type="Script" uid="uid://cdqvjtkmqxutg" path="res://gameplay/effects/click_effects/ring_effect.gd" id="1_3hwlk"]
+
+[node name="RingEffect" type="Node2D" unique_id=1230821698]
+script = ExtResource("1_3hwlk")

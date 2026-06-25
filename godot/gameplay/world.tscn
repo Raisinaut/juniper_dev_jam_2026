@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cw11hfws1f5t3" path="res://gameplay/ui/counter.tscn" id="6_3aytc"]
 [ext_resource type="PackedScene" uid="uid://b8t8300mivr15" path="res://gameplay/ui/upgrade_list.tscn" id="7_a7i81"]
 [ext_resource type="PackedScene" uid="uid://dajd2nsn3f3uy" path="res://gameplay/spawner/radial_spawner.tscn" id="7_rfe6v"]
+[ext_resource type="PackedScene" uid="uid://c1en65yujuk1q" path="res://gameplay/effects/click_effects/click_effects.tscn" id="10_sc5ct"]
+[ext_resource type="PackedScene" uid="uid://48qx422v270l" path="res://gameplay/effects/click_effects/ring_effect.tscn" id="11_0ohx2"]
 
 [sub_resource type="Curve2D" id="Curve2D_8ijeg"]
 _data = {
@@ -87,6 +89,7 @@ offset_right = 1120.0
 offset_bottom = 103.0
 size_flags_vertical = 8
 title = "pps"
+hide_decimal = false
 label_settings = SubResource("LabelSettings_sc5ct")
 
 [node name="Currency" parent="." unique_id=2100069892 instance=ExtResource("6_3aytc")]
@@ -101,3 +104,6 @@ offset_left = 640.0
 offset_top = 128.0
 offset_right = 1120.0
 offset_bottom = 576.0
+
+[node name="ClickEffects" parent="." unique_id=1509646332 instance=ExtResource("10_sc5ct")]
+effect = ExtResource("11_0ohx2")

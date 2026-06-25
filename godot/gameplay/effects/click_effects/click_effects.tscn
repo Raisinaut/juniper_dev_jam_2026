@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1en65yujuk1q"]
+
+[ext_resource type="Script" uid="uid://b8n0rifircy1a" path="res://gameplay/effects/click_effects/click_effects.gd" id="1_fbi40"]
+
+[node name="ClickEffects" type="Node2D" unique_id=1509646332]
+script = ExtResource("1_fbi40")

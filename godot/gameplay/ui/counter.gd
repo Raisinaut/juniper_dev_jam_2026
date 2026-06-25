@@ -15,7 +15,7 @@ func set_value(val) -> void:
 	value = val
 	if hide_decimal:
 		val = int(round(val))
-	%ValueLabel.text = str(val)
+	%ValueLabel.text = str(val).pad_decimals(1)
 
 func set_label_settings(val) -> void:
 	label_settings = val

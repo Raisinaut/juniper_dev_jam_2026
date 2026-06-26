@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_b6u6r")
 title = "Thwacker"
-details = "A thing to hit the thing"
+details = "Another thing to hit the thing
++1 paddle whacker"
 attribute = "paddle_count"
 base_value = 2.0
 upgrade_increment = 1.0

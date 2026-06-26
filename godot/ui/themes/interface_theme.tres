@@ -1,7 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://6x7g6yc0ph84"]
 
-[ext_resource type="FontFile" uid="uid://bc4gdckrhjtbx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="1_2tudf"]
-[ext_resource type="StyleBox" uid="uid://dw8xl6a2cm47g" path="res://gameplay/ui/styles/button_normal.tres" id="1_oabcr"]
+[ext_resource type="StyleBox" uid="uid://dw8xl6a2cm47g" path="res://ui/styles/button_normal.tres" id="1_vgsxw"]
+[ext_resource type="FontFile" uid="uid://bc4gdckrhjtbx" path="res://assets/fonts/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="2_8kuq0"]
+[ext_resource type="StyleBox" uid="uid://bilub2faiaa2o" path="res://ui/styles/panel_standard.tres" id="3_8kuq0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yegn6"]
 bg_color = Color(0.35343763, 0.35343757, 0.3534376, 1)
@@ -39,16 +40,34 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37yhw"]
-content_margin_left = 20.0
-content_margin_top = 8.0
-content_margin_right = 20.0
-content_margin_bottom = 8.0
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgsxw"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ma7b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ohx2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_82sw0"]
 grow_begin = -8.0
@@ -60,15 +79,22 @@ vertical = true
 Button/styles/disabled = SubResource("StyleBoxFlat_yegn6")
 Button/styles/focus = SubResource("StyleBoxFlat_5dias")
 Button/styles/hover = SubResource("StyleBoxFlat_5dias")
-Button/styles/normal = ExtResource("1_oabcr")
+Button/styles/normal = ExtResource("1_vgsxw")
 Button/styles/pressed = SubResource("StyleBoxFlat_oabcr")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 40
-Label/fonts/font = ExtResource("1_2tudf")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_37yhw")
+Label/fonts/font = ExtResource("2_8kuq0")
+PanelContainer/styles/panel = ExtResource("3_8kuq0")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
 RichTextLabel/constants/outline_size = 10
 RichTextLabel/font_sizes/normal_font_size = 50
-RichTextLabel/fonts/normal_font = ExtResource("1_2tudf")
+RichTextLabel/fonts/normal_font = ExtResource("2_8kuq0")
+VScrollBar/constants/padding_left = 20
+VScrollBar/constants/padding_right = 0
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vgsxw")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_7ma7b")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_7ma7b")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_0ohx2")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7ma7b")
 VSeparator/styles/separator = SubResource("StyleBoxLine_82sw0")

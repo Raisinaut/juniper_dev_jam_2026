@@ -14,6 +14,8 @@ var attribute : String = "" :
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	buy_button.pressed.connect(_on_buy_button_pressed)
 	GameManager.currency_changed.connect(refresh_disabled_state.unbind(1))
 	AttributeManager.attribute_updated.connect(_on_attribute_updated)

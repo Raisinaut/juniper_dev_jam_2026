@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b023p45ybigln" path="res://assets/hamster/hamster.png" id="1_h1mcn"]
 [ext_resource type="Script" uid="uid://e4yusgi7044x" path="res://gameplay/hamster/hamster.gd" id="1_t7nof"]
 [ext_resource type="Texture2D" uid="uid://cnjp6l3ctdtbj" path="res://assets/hamster/red_eye_glow.png" id="3_p1o0g"]
+[ext_resource type="PackedScene" uid="uid://i0cwabl0u5d7" path="res://gameplay/projectiles/emitter.tscn" id="4_rhova"]
+[ext_resource type="PackedScene" uid="uid://cknjjhwdp0y0d" path="res://gameplay/projectiles/types/lazer.tscn" id="5_g07i4"]
+[ext_resource type="Script" uid="uid://cwlh1wnc1b418" path="res://components/variable_timer.gd" id="6_g07i4"]
 
 [sub_resource type="Curve" id="Curve_p1o0g"]
 _data = [Vector2(0, 0.26301366), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -186,7 +189,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(181, -185), Vector2(183, -188), Vector2(188, -191), Vector2(187, -208), Vector2(190, -223), Vector2(197, -232), Vector2(197, -237), Vector2(195, -238), Vector2(194, -236), Vector2(194, -232), Vector2(185, -225), Vector2(183, -224), Vector2(189, -213), Vector2(185, -206)]
+"values": [Vector2(181.00006, -150.00006), Vector2(183.00006, -150), Vector2(188.00006, -153), Vector2(187.00006, -170), Vector2(190.00006, -185.00006), Vector2(197, -194), Vector2(197, -197), Vector2(195, -198), Vector2(194, -196), Vector2(194, -232), Vector2(185, -185.00006), Vector2(183, -184.00006), Vector2(189, -173.00006), Vector2(185, -166)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1o0g"]
@@ -208,14 +211,32 @@ hframes = 14
 
 [node name="EyePosition" type="Marker2D" parent="Sprite2D" unique_id=1970143410]
 position = Vector2(182, -185)
+scale = Vector2(0.5, 0.5)
+
+[node name="LazerEmitter" parent="Sprite2D/EyePosition" unique_id=841216963 instance=ExtResource("4_rhova")]
+unique_name_in_owner = true
+scale = Vector2(0.99999994, 0.99999994)
+emission_scene = ExtResource("5_g07i4")
+emission_speed = 10.0
+metadata/_edit_lock_ = true
 
 [node name="EyeGlow" type="Sprite2D" parent="Sprite2D/EyePosition" unique_id=43634359]
 visible = false
 texture = ExtResource("3_p1o0g")
+metadata/_edit_lock_ = true
 
-[node name="EyeAnmator" type="AnimationPlayer" parent="Sprite2D/EyePosition/EyeGlow" unique_id=1511208363]
+[node name="EyeAnimator" type="AnimationPlayer" parent="Sprite2D/EyePosition/EyeGlow" unique_id=1511208363]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_g07i4")
+speed_scale = 2.0
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="." unique_id=532557518]
 libraries/ = SubResource("AnimationLibrary_p1o0g")
 autoplay = &"run"
+
+[node name="LazerTimer" type="Timer" parent="." unique_id=1383428009]
+unique_name_in_owner = true
+script = ExtResource("6_g07i4")
+base_duration = 1.5
+duration_variation = 0.5
+metadata/_custom_type_script = "uid://cwlh1wnc1b418"

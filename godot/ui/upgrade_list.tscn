@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://b8t8300mivr15"]
 
-[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://gameplay/ui/themes/interface_theme.tres" id="1_30gb0"]
-[ext_resource type="Script" uid="uid://dguo3c1q87alj" path="res://gameplay/ui/upgrade_list.gd" id="2_6yysp"]
-[ext_resource type="PackedScene" uid="uid://dtxudhimxtw5i" path="res://gameplay/ui/upgrade_listing.tscn" id="2_ynkk4"]
+[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://ui/themes/interface_theme.tres" id="1_30gb0"]
+[ext_resource type="Script" uid="uid://dguo3c1q87alj" path="res://ui/upgrade_list.gd" id="2_6yysp"]
+[ext_resource type="PackedScene" uid="uid://dtxudhimxtw5i" path="res://ui/upgrade_listing.tscn" id="2_ynkk4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb1cm"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="UpgradeList" type="PanelContainer" unique_id=2040785906]
 offset_right = 448.0
 offset_bottom = 448.0
 theme = ExtResource("1_30gb0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tb1cm")
 script = ExtResource("2_6yysp")
 listing_scene = ExtResource("2_ynkk4")
 
@@ -28,3 +40,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 6
+
+[node name="UpgradeListing" parent="MarginContainer/ScrollContainer/ListContainer" unique_id=1713717684 instance=ExtResource("2_ynkk4")]
+layout_mode = 2

@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_vxkep")
 title = "Optical Lazers"
-details = "Consequences shmonsequences!"
+details = "Consequences shmonsequences!
+Hamsters shoot 50p lazers"
 attribute = "lazer_eyes"
 single_use = true
 upgrade_increment = 1.0
-base_cost = 5000
+base_cost = 1000
 metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

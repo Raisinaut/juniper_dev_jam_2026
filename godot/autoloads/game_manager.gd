@@ -3,7 +3,7 @@ extends Node
 signal currency_changed(currency)
 signal current_rpm_changed(rpm)
 
-const base_currency : int = 100
+const base_currency : int = 10000
 
 var currency : int = base_currency :
 	set(val): currency = val; currency_changed.emit(currency)

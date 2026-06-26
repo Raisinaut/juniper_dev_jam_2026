@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttributeData" format=3 uid="uid://2pb8vag67t7c"]
+
+[ext_resource type="Script" uid="uid://dl5ldl50ujvgu" path="res://resources/_classes/attribute_data.gd" id="1_xbmke"]
+
+[resource]
+script = ExtResource("1_xbmke")
+title = "Click harder"
+details = "Put your back into it 
+Additional +3 rpm per click"
+attribute = "click_rpm"
+single_use = true
+base_value = 3.0
+upgrade_increment = 3.0
+base_cost = 100
+metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

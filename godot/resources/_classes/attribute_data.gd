@@ -2,12 +2,12 @@ class_name AttributeData
 extends Resource
 
 @export var title : String = ""
-@export var details : String = ""
+@export_multiline var details : String = ""
 ## The script-definition name of the attribute
 @export var attribute : String = ""
 @export var single_use : bool = false
-## Include a %s in details where these values should be referenced respectively
-@export var referenced_attributes : Array[String] = []
+## Include a %d in details where these values should be referenced respectively
+@export var referenced_attributes : Array[AttributeData] = []
 
 @export_category("Value")
 @export var base_value : float = 0.0
@@ -49,10 +49,11 @@ func scale_upgrade_cost() -> void:
 	upgrade_cost = round(pow(upgrade_cost, cost_increase_exponent))
 
 func get_details_with_references() -> String:
-	var referenced_attribute_values : Array[float] = []
+	var referenced_attribute_values : Array = []
 	for a in referenced_attributes:
-		if AttributeManager.attributes.has(a):
-			referenced_attribute_values.append(AttributeManager.attributes[a])
+		var attribute_name = a.attribute
+		if AttributeManager.attributes.has(attribute_name):
+			referenced_attribute_values.append(AttributeManager.attributes[attribute_name])
 		else:
 			push_warning("No value found in reference to ", a)
 	return details % referenced_attribute_values

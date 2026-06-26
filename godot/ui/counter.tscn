@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw11hfws1f5t3"]
 
-[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://gameplay/ui/themes/interface_theme.tres" id="1_aqc1b"]
-[ext_resource type="Script" uid="uid://csstoby76pg4w" path="res://gameplay/ui/counter.gd" id="2_aqc1b"]
+[ext_resource type="Theme" uid="uid://6x7g6yc0ph84" path="res://ui/themes/interface_theme.tres" id="1_aqc1b"]
+[ext_resource type="Script" uid="uid://csstoby76pg4w" path="res://ui/counter.gd" id="2_aqc1b"]
 
 [node name="Counter" type="PanelContainer" unique_id=738782303]
 offset_right = 374.0

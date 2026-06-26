@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://i0cwabl0u5d7"]
+
+[ext_resource type="Script" uid="uid://du76jw7svhpsy" path="res://gameplay/projectiles/emitter.gd" id="1_rx3ao"]
+
+[node name="Emitter" type="Node2D" unique_id=841216963]
+script = ExtResource("1_rx3ao")

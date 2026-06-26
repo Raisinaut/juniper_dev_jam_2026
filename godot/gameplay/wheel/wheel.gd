@@ -36,8 +36,8 @@ var rpm_boost : float = 0.0
 var rpm_boost_decrease_rate : float = 15.0
 var last_rpm : float = 0
 var rotation_since_tick : float = 0.0
+var last_tick_angle : float = -1
 var boost_tween : Tween = null
-
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -67,6 +67,9 @@ func spin(delta : float):
 		var remaining_angle = ticks_passed - floor(ticks_passed)
 		rotation_since_tick = remaining_angle * tick_angle_separation()
 
+# issue: when changing tick count on the fly,
+# the wheel loses track of where the last tick was
+
 func tick_angle_separation() -> float:
 	return 2 * PI / tick_count
 
@@ -91,13 +94,14 @@ func _on_mouse_area_clicked() -> void:
 	# TWEEN BOOST BACK TO ZERO
 	if boost_tween: boost_tween.kill()
 	boost_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	boost_tween.tween_property(self, "rpm_boost", 0, 2.0)
+	boost_tween.tween_property(self, "rpm_boost", 0, 4.0)
 	clicked.emit()
 
 
 # DRAWING ----------------------------------------------------------------------
 func _draw() -> void:
 	draw_ticks()
+	draw_fill()
 	draw_ring()
 	draw_supports()
 
@@ -116,6 +120,9 @@ func draw_ticks() -> void:
 		tick_lines.append(v * (radius + tick_length))
 	if tick_lines.size() >= 2:
 		draw_multiline(tick_lines, Color.WHITE, tick_width)
+
+func draw_fill() -> void:
+	draw_circle(Vector2.ZERO, radius, Color(0,0,0,0.8))
 
 func draw_ring() -> void:
 	var r_offset = radius * fill

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cknjjhwdp0y0d"]
+
+[ext_resource type="Script" uid="uid://b5tg717n8u3xp" path="res://gameplay/projectiles/classes/projectile.gd" id="1_sjltj"]
+[ext_resource type="Texture2D" uid="uid://djmy8bq0xx8hy" path="res://assets/objects/projectiles/lazer.png" id="2_mfnio"]
+[ext_resource type="Script" uid="uid://boi0o64v5aipl" path="res://gameplay/effects/sprite_trail.gd" id="3_s53b6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfnio"]
+radius = 8.0
+height = 48.0
+
+[node name="Lazer" type="CharacterBody2D" unique_id=1680086711]
+motion_mode = 1
+script = ExtResource("1_sjltj")
+speed = 1500.0
+power = 20.0
+metadata/_custom_type_script = "uid://b5tg717n8u3xp"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662203550]
+position = Vector2(24, 0)
+scale = Vector2(0.8, 0.7)
+texture = ExtResource("2_mfnio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=337371840]
+position = Vector2(24, 0)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_mfnio")
+
+[node name="SpriteTrail" type="Node2D" parent="." unique_id=1737064585 node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_s53b6")
+sprite = NodePath("../Sprite2D")
+interval = 0.005
+metadata/_custom_type_script = "uid://boi0o64v5aipl"

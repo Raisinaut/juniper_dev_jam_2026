@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="AttributeData" format=3 uid="uid://bxu6pfbhkuphc"]
 
 [ext_resource type="Script" uid="uid://dl5ldl50ujvgu" path="res://resources/_classes/attribute_data.gd" id="1_tckke"]
+[ext_resource type="Resource" uid="uid://2pb8vag67t7c" path="res://resources/attributes/su011_click_rpm.tres" id="2_vy2k7"]
 
 [resource]
 script = ExtResource("1_tckke")
 title = "Human Power"
-details = "Add a +%d rpm boost to manual spins"
+details = "More spinnin' for your clickin' 
++%d rpm to each click"
 attribute = "click_multiplier"
-referenced_attributes = Array[String](["click_rpm"])
-base_value = 3.0
-upgrade_increment = 3.0
+referenced_attributes = Array[ExtResource("1_tckke")]([ExtResource("2_vy2k7")])
+base_value = 1.0
+upgrade_increment = 1.0
 base_cost = 5
 cost_increase_exponent = 1.08
 metadata/_custom_type_script = "uid://dl5ldl50ujvgu"

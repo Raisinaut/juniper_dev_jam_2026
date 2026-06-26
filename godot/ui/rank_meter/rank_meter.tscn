@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkx1ttyr0p7go"]
 
-[ext_resource type="Script" uid="uid://bessxers08sq3" path="res://gameplay/ui/rank_meter/rank_meter.gd" id="1_h6li3"]
-[ext_resource type="PackedScene" uid="uid://sh2fuht2pw8c" path="res://gameplay/ui/rank_meter/rank_marker.tscn" id="1_ttwnu"]
+[ext_resource type="Script" uid="uid://bessxers08sq3" path="res://ui/rank_meter/rank_meter.gd" id="1_h6li3"]
+[ext_resource type="PackedScene" uid="uid://sh2fuht2pw8c" path="res://ui/rank_meter/rank_marker.tscn" id="1_ttwnu"]
 
 [node name="RankMeter" type="GridContainer" unique_id=604443429]
 modulate = Color(0, 0, 0, 1)

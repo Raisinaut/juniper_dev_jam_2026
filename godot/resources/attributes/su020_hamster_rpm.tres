@@ -8,6 +8,7 @@ title = "Hamsteroids"
 details = "Don't tell them they're placebos
 +10 rpm per hamster"
 attribute = "hamster_rpm"
+single_use = true
 base_value = 20.0
 upgrade_increment = 10.0
 base_cost = 300

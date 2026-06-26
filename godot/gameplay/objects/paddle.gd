@@ -8,7 +8,7 @@ signal flicked(power)
 var max_flick_rotation = 0.4
 var min_flick_rotation = 0.2
 var max_power = 30
-var big_hits_before_break : int = 5 : set = set_big_hits_before_break
+var big_hits_before_break : int = 50 : set = set_big_hits_before_break
 var broken : bool = false
 
 var rotation_tween : Tween = null
